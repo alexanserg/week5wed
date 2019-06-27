@@ -14,7 +14,7 @@ export class Haiku  {
     }
   }
 
-  newCount (word) { //We need function keyword to define a function in function
+  newCount (word) {
     word = word.toLowerCase();
     if(word.length <= 3) { return 1; }
     word = word.replace(/(?:[^laeiouy]es|ed|[^laeiouy]e)$/, '');
@@ -35,19 +35,3 @@ export class Haiku  {
     }
   }
 }
-
-// let line1Arr = this.line1.split(" ");
-// let line2Arr = this.line2.split(" ");
-// let line3Arr = this.line3.split(" ");
-// let sylCount1 = 0;
-// let sylCount2 = 0;
-// let sylCount3 = 0;
-// line1Arr.forEach(function(element) {
-//   sylCount1 += new_count(element);
-// });
-// line2Arr.forEach(function(element) {
-//   sylCount2 += new_count(element);
-// });
-// line3Arr.forEach(function(element) {
-//   sylCount3 += new_count(element);
-// });
