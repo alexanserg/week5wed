@@ -27,7 +27,7 @@ export class Haiku  {
     let sylCount = [0, 0, 0];
     for (let i = 0; i < 3; i++) {
       lineArr[i].forEach(function(element) {
-        sylCount[i] += this.newCount(element);
+        sylCount[i] += this.newCount(element); //"this."" keyword is for calling a method from another method in same class
       });
     }
     if (sylCount[0] === 5 && sylCount[1] == 7 && sylCount[2] === 5) {
