@@ -14,14 +14,7 @@ export class Haiku  {
     }
   }
 
-
   sylChecker() {
-    let line1Arr = this.line1.split(" ");
-    let line2Arr = this.line2.split(" ");
-    let line3Arr = this.line3.split(" ");
-    let sylCount1 = 0;
-    let sylCount2 = 0;
-    let sylCount3 = 0;
     function new_count(word) { //We need function keyword to define a function in function
       word = word.toLowerCase();
       if(word.length <= 3) { return 1; }
@@ -29,17 +22,32 @@ export class Haiku  {
       word = word.replace(/^y/, '');
       return word.match(/[aeiouy]{1,2}/g).length;
     }
-    line1Arr.forEach(function(element) {
-      sylCount1 += new_count(element);
-    });
-    line2Arr.forEach(function(element) {
-      sylCount2 += new_count(element);
-    });
-    line3Arr.forEach(function(element) {
-      sylCount3 += new_count(element);
-    });
-    if (sylCount1 === 5 && sylCount2 == 7 && sylCount3 === 5) {
+    
+    let lineArr = [this.line1.split(" "), this.line2.split(" "), this.line3.split(" ")];
+    let sylCount = [0, 0, 0];
+    for (let i = 0; i < 3; i++) {
+      lineArr[i].forEach(function(element) {
+        sylCount[i] += new_count(element);
+      });
+    }
+    if (sylCount[0] === 5 && sylCount[1] == 7 && sylCount[2] === 5) {
       this.threesyls = true;
     }
   }
 }
+
+// let line1Arr = this.line1.split(" ");
+// let line2Arr = this.line2.split(" ");
+// let line3Arr = this.line3.split(" ");
+// let sylCount1 = 0;
+// let sylCount2 = 0;
+// let sylCount3 = 0;
+// line1Arr.forEach(function(element) {
+//   sylCount1 += new_count(element);
+// });
+// line2Arr.forEach(function(element) {
+//   sylCount2 += new_count(element);
+// });
+// line3Arr.forEach(function(element) {
+//   sylCount3 += new_count(element);
+// });
