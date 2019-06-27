@@ -14,20 +14,20 @@ export class Haiku  {
     }
   }
 
+  newCount (word) { //We need function keyword to define a function in function
+    word = word.toLowerCase();
+    if(word.length <= 3) { return 1; }
+    word = word.replace(/(?:[^laeiouy]es|ed|[^laeiouy]e)$/, '');
+    word = word.replace(/^y/, '');
+    return word.match(/[aeiouy]{1,2}/g).length;
+  }
+
   sylChecker() {
-    function new_count(word) { //We need function keyword to define a function in function
-      word = word.toLowerCase();
-      if(word.length <= 3) { return 1; }
-      word = word.replace(/(?:[^laeiouy]es|ed|[^laeiouy]e)$/, '');
-      word = word.replace(/^y/, '');
-      return word.match(/[aeiouy]{1,2}/g).length;
-    }
-    
     let lineArr = [this.line1.split(" "), this.line2.split(" "), this.line3.split(" ")];
     let sylCount = [0, 0, 0];
     for (let i = 0; i < 3; i++) {
       lineArr[i].forEach(function(element) {
-        sylCount[i] += new_count(element);
+        sylCount[i] += this.newCount(element);
       });
     }
     if (sylCount[0] === 5 && sylCount[1] == 7 && sylCount[2] === 5) {
