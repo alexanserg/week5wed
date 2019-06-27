@@ -14,13 +14,6 @@ export class Haiku  {
     }
   }
 
-  new_count(word) {
-    word = word.toLowerCase();
-    if(word.length <= 3) { return 1; }
-    word = word.replace(/(?:[^laeiouy]es|ed|[^laeiouy]e)$/, '');
-    word = word.replace(/^y/, '');
-    return word.match(/[aeiouy]{1,2}/g).length;
-  }
 
   sylChecker() {
     let line1Arr = this.line1.split(" ");
@@ -29,6 +22,13 @@ export class Haiku  {
     let sylCount1 = 0;
     let sylCount2 = 0;
     let sylCount3 = 0;
+    function new_count(word) { //We need function keyword to define a function in function
+      word = word.toLowerCase();
+      if(word.length <= 3) { return 1; }
+      word = word.replace(/(?:[^laeiouy]es|ed|[^laeiouy]e)$/, '');
+      word = word.replace(/^y/, '');
+      return word.match(/[aeiouy]{1,2}/g).length;
+    }
     line1Arr.forEach(function(element) {
       sylCount1 += new_count(element);
     });
@@ -42,5 +42,4 @@ export class Haiku  {
       this.threesyls = true;
     }
   }
-}
 }
