@@ -2,10 +2,15 @@ import { Haiku } from "../src/haiku.js"
 
 // Your logic should verify that the poem has three lines.
 describe('HaikuLines', function() {
+  it('should test whether Haiku.myHaiku property is functioning properly', function() {
+    let testObj = new Haiku("abcd", "efgh", "ijkl");
+    expect(testObj.myHaiku).toEqual("abcd" + "<br>" + "efgh" + "<br>" + "ijkl");
+  });
   it('should test whether a Haiku has three lines', function() {
-    let testObj = new Haiku("asdf", "sadf", "ljlkj");
-    testObj.lineCombine()
-    expect(testObj.myHaiku).toEqual("asdfsadfljlkj");
+    let testObj = new Haiku("abcd", "", "ijkl");
+    testObj.lineChecker(); //This line do lineChecker action with inputs ("abcd", "efgh", "ijkl") and return true for this.threeLines,
+    // when we have three lines actually. If we have only two lines, then it is still false after lineChecker fuction process.
+    expect(testObj.threeLines).toEqual(true);
   });
 });
 
