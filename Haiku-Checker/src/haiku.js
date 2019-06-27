@@ -14,7 +14,7 @@ export class Haiku  {
     }
   }
 
-  newCount (word) {
+  newCount(word) {
     word = word.toLowerCase();
     if(word.length <= 3) { return 1; }
     word = word.replace(/(?:[^laeiouy]es|ed|[^laeiouy]e)$/, '');
@@ -34,4 +34,37 @@ export class Haiku  {
       this.threesyls = true;
     }
   }
+}
+
+export class haikuAi {
+  constructor(ranString){
+    this.ranString = ranString;
+    this.ranArr = ranString.split(/\s+/);
+  }
+
+  wordGrabber() {
+    ranIndex= getRandomInt(this.ranArr.length);
+    ranLine = [];
+    ranWord = ranLine.push(this.ranArr[ranIndex]);
+  }
+
+  // function count (word) {
+  //   if(word.length <= 3) { return 1; }
+  //     word = word.replace(/(?:[^laeiouy]es|ed|[^laeiouy]e)$/, '');
+  //     word = word.replace(/^y/, '');
+  //     return word.match(/[aeiouy]{1,2}/g).length;
+  // }
+  //
+  // let ranString = "when i consider how my light was spent ere half my days in this dark world and wide with that one talent which is death to hide";
+  // let ranArr = ranString.split(" ");
+  // let ranLine = [];
+  //
+  // let
+  // let ranNum = Math.floor((Math.random() * ranArr.length) + 1);
+  // let testWord = ranArr[ranNum];
+  // document.write(testWord, count(testWord));
+  // if (count(testWord) < 6) {
+  //  ranLine.push(ranArr[ranNum]);
+  // }
+
 }
